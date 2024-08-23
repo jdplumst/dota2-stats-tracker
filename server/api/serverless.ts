@@ -7,10 +7,15 @@ const server: FastifyInstance = fastify({ logger: true });
 
 server.register(routes, { prefix: "/" });
 
-// Start the server
-try {
-  server.listen({ port: env.PORT ?? 5000 });
-} catch (err) {
-  server.log.error(err);
-  process.exit(1);
-}
+export default async (req, res) => {
+  await server.ready();
+  server.server.emit("request", req, res);
+};
+
+// // Start the server
+// try {
+//   server.listen({ port: env.PORT ?? 5000 });
+// } catch (err) {
+//   server.log.error(err);
+//   process.exit(1);
+// }
