@@ -1,8 +1,8 @@
 {
   "type": "module",
   "scripts": {
-    "start": "tsx src/index.ts",
-    "dev": "tsx watch src/index.ts",
+    "start": "tsx api/serverless.ts",
+    "dev": "tsx watch api/serverless.ts",
     "lint": "eslint",
     "prettier": "prettier . --write"
   },
