@@ -18,7 +18,8 @@ server.route({
             }
         }
     },
-    handler: async (_req, _res) => {
+    handler: async (req, _res) => {
+        req.log.info("Health check")
         return { message: 'Healthy!' }
     }
 })
