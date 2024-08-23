@@ -1,0 +1,12 @@
+{
+	"type": "module",
+	"dependencies": {
+		"fastify": "^4.28.1"
+	},
+	"devDependencies": {
+		"@types/node": "^22.5.0",
+		"dotenv": "^16.4.5",
+		"fastify-tsconfig": "^2.0.0",
+		"tsx": "^4.17.0"
+	}
+}
