@@ -1,7 +1,7 @@
 import { FastifyInstance, FastifyServerOptions } from "fastify";
 
 // Health check route
-export default function (
+export function routes(
   instance: FastifyInstance,
   _opts: FastifyServerOptions,
   done,

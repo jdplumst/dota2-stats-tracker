@@ -2,7 +2,7 @@
 
 import fastify, { FastifyInstance } from "fastify";
 import { env } from "../src/env.js";
-import routes from "../src/index.js";
+import { routes } from "../src/index.js";
 
 // Instantiate the fastify server
 const server: FastifyInstance = fastify({ logger: true });
