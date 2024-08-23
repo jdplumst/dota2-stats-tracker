@@ -1,5 +1,5 @@
 import fastify, { FastifyInstance } from "fastify";
-import 'dotenv/config'
+import { env } from "./env";
 
 // Instantiate the fastify server
 const server: FastifyInstance = fastify({ logger: true })
@@ -25,7 +25,7 @@ server.route({
 
 // Start the server
 try {
-    server.listen({ port: Number(process.env.PORT) ?? 5000 })
+    server.listen({ port: env.PORT ?? 5000 })
 } catch (err) {
     server.log.error(err)
     process.exit(1)
