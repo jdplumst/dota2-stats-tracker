@@ -3,6 +3,7 @@
   "scripts": {
     "start": "tsx api/serverless.ts",
     "dev": "tsx watch api/serverless.ts",
+    "devv": "tsx watch src/index.ts",
     "lint": "eslint .",
     "prettier": "prettier . --write",
     "vercel-build": "eslint ."

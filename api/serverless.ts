@@ -1,6 +1,8 @@
+"use strict";
+
 import fastify, { FastifyInstance } from "fastify";
-import { env } from "../src/env";
-import routes from "../src/index";
+import { env } from "../src/env.js";
+import routes from "../src/index.js";
 
 // Instantiate the fastify server
 const server: FastifyInstance = fastify({ logger: true });
