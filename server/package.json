@@ -3,8 +3,9 @@
   "scripts": {
     "start": "tsx api/serverless.ts",
     "dev": "tsx watch api/serverless.ts",
-    "lint": "eslint",
-    "prettier": "prettier . --write"
+    "lint": "eslint .",
+    "prettier": "prettier . --write",
+    "vercel-build": "eslint ."
   },
   "dependencies": {
     "fastify": "^4.28.1",
