@@ -4,15 +4,9 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-
-	"github.com/joho/godotenv"
 )
 
 func TestHealthHandler(t *testing.T) {
-	err := godotenv.Load("../.env")
-	if err != nil {
-		t.Fatal("Error loading .env file")
-	}
 	t.Run("GET /api/health", func(t *testing.T) {
 		// Create a new request
 		req, err := http.NewRequest("GET", "/api/health", nil)
