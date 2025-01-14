@@ -9,3 +9,7 @@ run-server:
 	@cd server && vercel dev ../ 
 
 run: run-client run-server
+
+test-server:
+	@echo "Testing server..."
+	@cd server && go test ./api -v
