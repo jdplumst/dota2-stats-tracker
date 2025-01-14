@@ -17,8 +17,8 @@ jobs:
         run: make install-server
       - name: Create env file
         run: |
-          touch .env
-          echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
+          touch server/.env
+          echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> server/.env
       - name: Run Go Tests
         run: make test-server 
       - name: Upload Go test results
