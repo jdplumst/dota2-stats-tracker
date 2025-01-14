@@ -12,7 +12,7 @@ run: run-client run-server
 
 install-server:
 	@echo "Installing server dependencies..."
-	@cd server && go get .
+	@cd server && go get ./...
 
 test-server:
 	@echo "Testing server..."
