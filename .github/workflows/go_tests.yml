@@ -15,9 +15,11 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install dependencies
         run: make install-server
+      - name: Create env file
+        run: |
+          touch server/.env
+          echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> server/.env
       - name: Run Go Tests
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: make test-server 
       - name: Upload Go test results
         uses: actions/upload-artifact@v4
