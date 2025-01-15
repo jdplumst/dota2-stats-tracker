@@ -25,6 +25,8 @@ jobs:
       - uses: mscno/setup-goose@v1
       - name: Get Directory
         run: pwd
+      - name: ls
+        run: ls -la
       - name: Run Migrations
         run: make migrate
       - name: Run Go Tests
