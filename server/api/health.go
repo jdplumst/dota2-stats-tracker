@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/jdplumst/dota2-stats-tracker/server/db"
+	"github.com/jdplumst/dota2-stats-tracker/server/database"
 	"github.com/jdplumst/dota2-stats-tracker/server/utils"
 )
 
@@ -12,7 +12,7 @@ func HealthHandler(w http.ResponseWriter, req *http.Request) {
 	utils.SetCors(w)
 	w.Header().Set("Content-Type", "application/json")
 
-	_, err := db.NewConnection()
+	db, err := database.NewConnection()
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		resp := make(map[string]string)
@@ -21,6 +21,7 @@ func HealthHandler(w http.ResponseWriter, req *http.Request) {
 		w.Write(jsonResp)
 		return
 	}
+	defer db.Close()
 
 	w.WriteHeader(http.StatusOK)
 	resp := make(map[string]string)
