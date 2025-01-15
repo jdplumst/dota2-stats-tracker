@@ -17,3 +17,7 @@ install-server:
 test-server:
 	@echo "Testing server..."
 	@cd server && go test ./api -v
+
+migrate:
+	@echo "Running database migrations..."
+	@goose up -env=server/.env

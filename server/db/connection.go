@@ -10,7 +10,6 @@ import (
 )
 
 func NewConnection() (*sqlx.DB, error) {
-
 	dbUrl := os.Getenv("DATABASE_URL")
 	db, err := sqlx.Connect("libsql", dbUrl)
 	if err != nil {
