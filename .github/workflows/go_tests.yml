@@ -19,6 +19,11 @@ jobs:
         run: |
           touch server/.env
           echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> server/.env
+          echo "GOOSE_DBSTRING=${{ secrets.TEST_GOOSE_DBSTRING }}" >> server/.env
+          echo "GOOSE_DRIVER=${{ secrets.TEST_GOOSE_DRIVER }}" >> server/.env
+          echo "GOOSE_MIGRATION_DIR=${{ secrets.TEST_GOOSE_MIGRATION_DIR }}" >> server/.env
+      - name: Run Migrations
+        run: make migrate
       - name: Run Go Tests
         run: make test-server 
       - name: Upload Go test results
