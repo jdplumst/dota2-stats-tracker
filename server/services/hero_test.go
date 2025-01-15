@@ -5,6 +5,7 @@ import (
 	"os"
 	"testing"
 
+	"github.com/jdplumst/dota2-stats-tracker/server/database"
 	"github.com/joho/godotenv"
 )
 
@@ -14,6 +15,8 @@ func TestHeroService(t *testing.T) {
 		log.Println(os.Getwd())
 		log.Fatal("error loading .env file", err)
 	}
+	database.SeedDatabase()
+
 	t.Run("GetHeroes", func(t *testing.T) {
 		got, err := GetHeroes()
 		if err != nil {

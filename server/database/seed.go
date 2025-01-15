@@ -10,7 +10,7 @@ func SeedDatabase() {
 	defer db.Close()
 
 	// Clear hero table
-	_, err = db.Exec("DELETE * FROM hero")
+	_, err = db.Exec("DELETE FROM hero")
 	if err != nil {
 		log.Fatal("error clearing hero table in database", err)
 	}
@@ -149,7 +149,7 @@ func SeedDatabase() {
 	}
 
 	// Clear faction table
-	_, err = db.Exec("DELETE * FROM faction")
+	_, err = db.Exec("DELETE FROM faction")
 	if err != nil {
 		log.Fatal("error clearing faction table in database", err)
 	}
@@ -164,7 +164,7 @@ func SeedDatabase() {
 	}
 
 	// Clear position table
-	_, err = db.Exec("DELETE * FROM position")
+	_, err = db.Exec("DELETE FROM position")
 	if err != nil {
 		log.Fatal("error clearing position table in database", err)
 	}
