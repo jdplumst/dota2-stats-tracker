@@ -7,6 +7,7 @@ import (
 	"os"
 	"testing"
 
+	"github.com/jdplumst/dota2-stats-tracker/server/database"
 	"github.com/joho/godotenv"
 )
 
@@ -14,8 +15,10 @@ func TestHealthHandler(t *testing.T) {
 	err := godotenv.Load("../.env")
 	if err != nil {
 		log.Println(os.Getwd())
-		log.Fatal("Error loading .env file", err)
+		log.Fatal("error loading .env file", err)
 	}
+	database.SeedDatabase()
+
 	t.Run("GET /api/health", func(t *testing.T) {
 		// Create a new request
 		req, err := http.NewRequest("GET", "/api/health", nil)
