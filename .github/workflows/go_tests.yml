@@ -23,6 +23,8 @@ jobs:
           echo "GOOSE_DRIVER=${{ secrets.TEST_GOOSE_DRIVER }}" >> server/.env
           echo "GOOSE_MIGRATION_DIR=${{ secrets.TEST_GOOSE_MIGRATION_DIR }}" >> server/.env
       - uses: mscno/setup-goose@v1
+      - name: Get Directory
+        run: pwd
       - name: Run Migrations
         run: make migrate
       - name: Run Go Tests
