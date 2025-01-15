@@ -16,7 +16,7 @@ install-server:
 
 test-server:
 	@echo "Testing server..."
-	@cd server && go test ./api -v
+	@cd server && go test ./... -v
 
 migrate:
 	@echo "Running database migrations..."
