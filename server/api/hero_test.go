@@ -7,9 +7,16 @@ import (
 	"testing"
 
 	"github.com/jdplumst/dota2-stats-tracker/server/database"
+	"github.com/joho/godotenv"
 )
 
 func TestHeroHandler(t *testing.T) {
+	err := godotenv.Load("../.env")
+	if err != nil {
+		t.Fatal("error loading .env file", err)
+	}
+	database.SeedDatabase()
+
 	t.Run("GET /api/hero", func(t *testing.T) {
 		// Create a new request
 		req, err := http.NewRequest("GET", "/api/hero", nil)

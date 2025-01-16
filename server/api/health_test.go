@@ -1,10 +1,8 @@
 package api
 
 import (
-	"log"
 	"net/http"
 	"net/http/httptest"
-	"os"
 	"testing"
 
 	"github.com/jdplumst/dota2-stats-tracker/server/database"
@@ -14,8 +12,7 @@ import (
 func TestHealthHandler(t *testing.T) {
 	err := godotenv.Load("../.env")
 	if err != nil {
-		log.Println(os.Getwd())
-		log.Fatal("error loading .env file", err)
+		t.Fatal("error loading .env file", err)
 	}
 	database.SeedDatabase()
 
